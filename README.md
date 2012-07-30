@@ -10,6 +10,14 @@ Sometimes I will be missing steps between instructions, such as "stop your serve
 
 As a side note, I usually have 3 or more console tabs open to the current directory I'm working in so I can run my server and console and any rake commands I want at the same time.
 
+## Install
+
+You will need ruby 1.9 on your system.
+
+    $ ruby -v
+
+You will also need rails and bundler. You can find install directions and materials in previous exercises http://schneems.com/ut-rails. This is not a beginner exercise, but rather an intermediate trial by fire, new developers are not expected to be able to finish. Good luck. 
+
 ## Let's get Started
 
 First we will take a look at what we want to build, make a game plan on how to make it, and then iterate very slowly until our product becomes what we desire.
