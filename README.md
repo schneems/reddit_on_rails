@@ -1,6 +1,6 @@
 ## Reddit on Rails: A Hero's Journey
 
-In past exercises I've given you a starter project to work on, and I've given very step by step instructions with the intent of teaching specific concepts and skills. By now you have the knowledge to accomplish much with Rails. We will use that knowledge to build a website from scratch similar in functionality to http://reddit.com.
+In past exercises for [UT on Rails](http://schneems.com/ut-rails) I've given you a starter project to work on, and I've given very step by step instructions with the intent of teaching specific concepts and skills. By now you have the knowledge to accomplish much with Rails. We will use that knowledge to build a website from scratch similar in functionality to http://reddit.com.
 
 Instead of focusing on specific concepts and introducing ideas, in this exercise we will be looking at Rails from a high level. We will be doing things that you've already done, it is your job as a student to try to anticipate what we should be doing next before we do it, and then to execute the implementation with full understanding. If you have any doubts over why we are doing something, you should ask someone immediately, or write them down to investigate later. While you can get through the exercise by blindly following instructions, you will be more lost when attempting to implement things by yourself. If you want to get the full bennefit of this exercise, try to not copy any code. Type in code as it appears, and fix any mistakes that you make. This exercise is not about the final product but about the journey.
 
@@ -16,7 +16,7 @@ You will need ruby 1.9 on your system.
 
     $ ruby -v
 
-You will also need rails and bundler. You can find install directions and materials in previous exercises http://schneems.com/ut-rails. This is not a beginner exercise, but rather an intermediate trial by fire, new developers are not expected to be able to finish. Good luck. 
+You will also need rails and bundler. You can find install directions and materials in previous exercises http://schneems.com/ut-rails. This is not a beginner exercise, but rather an intermediate trial by fire, new developers are not expected to be able to finish. Good luck.
 
 ## Let's get Started
 
@@ -589,10 +589,10 @@ But then we need to change the class name and add some actions
     class LinksController < ApplicationController
       def show
       end
-    
+
       def new
       end
-    
+
       def create
       end
     end
@@ -772,14 +772,14 @@ This last part mentions links, votes, and comments. While we already have links,
 
 That indicates to me that we should have some more user stories before completing the rest of this one. Votes first:
 
-    "A logged in user visits the home page, sees a user submitted link and votes on it. 
-     The user should end up on the home page and the vote count should change up or down 
+    "A logged in user visits the home page, sees a user submitted link and votes on it.
+     The user should end up on the home page and the vote count should change up or down
      according to how they voted"
 
 Now Comments
 
-    "A logged in user visits the home page, clicks the comments link under a user submitted 
-     link, there they can add a comment message to that link. Other users can view that 
+    "A logged in user visits the home page, clicks the comments link under a user submitted
+     link, there they can add a comment message to that link. Other users can view that
      comment message by visiting the link's show page."
 
 
