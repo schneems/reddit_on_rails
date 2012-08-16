@@ -172,7 +172,7 @@ Replace `links` with `comments` and then add the columns we need (message, user_
 If you can't then try rolling back your migration and fixing any problems or error messages you encounter. Once you get it working we'll want to add the association to our comments. Add `has_many` and `belongs_to` in the appropriate models `app/models/comments.rb`, `app/models/link.rb` and `app/models/user.rb`. Once you have them specified correctly you should be able to run this in the console:
 
     $ rails console
-    > Comment.last.links
+    > Comment.last.link
     > Comment.last.user
     > User.last.comments
     > Link.last.comments
