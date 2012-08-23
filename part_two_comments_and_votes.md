@@ -685,7 +685,7 @@ We need to let a user know when they have voted for a link and whether they vote
 
 
 
-      <% if current_user.votes.where(:link_id => link.id, :up => true).present? %>
+      <% if current_user && current_user.votes.where(:link_id => link.id, :up => true).present? %>
         *
       <% else %>
         <%= link_to "+", votes_path(:vote => {:link_id => link.id, :up => true}), :method => :post %>
