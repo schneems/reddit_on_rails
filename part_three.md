@@ -235,11 +235,11 @@ Now we need our schema in the database so you can run
 
 You should be set now, you can double check by restarting your rails server or opening up your console and performing a query.
 
-While we could search all kinds of things, lets focus on searching for links right now, specifically the title of links. We could do this writing our own sql, but whenever you're doing something you feel might be fairly common it is always a good idea to research if there are any libraries you can use. To make using full text search with Postgres easier I decided to use the [Texticle Gem](https://github.com/texticle/texticle).
+While we could search all kinds of things, lets focus on searching for links right now, specifically the title of links. We could do this writing our own sql, but whenever you're doing something you feel might be fairly common it is always a good idea to research if there are any libraries you can use. To make using full text search with Postgres easier I decided to use the [Textacular Gem](https://github.com/textacular/textacular).
 
 To get started add it to your Gemfile:
 
-    gem 'texticle', :require => 'texticle/rails'
+    gem 'textacular', require: 'textacular/rails'
 
 Then run:
 
@@ -260,9 +260,9 @@ So looks like it worked, to see the output you can call `.to_sql` on the method
       AS "rank0.19344968583449806" FROM "links"  WHERE (to_tsvector('english', "links"."title"::text) @@ to_tsquery(
        'english', 'rails'::text)) ORDER BY "rank0.19344968583449806" DESC
 
-As you can see from the query there is quite a bit going on here, but at the end of the day the `texticle` gem is using SQL that Postgres can read in and output a search. Don't expect this sql to work on another RDBMS like mysql, it is custom to Postgres. Back in the day people used to strive for cross database compliance on websites (the ability to switch between mysql and postgresql for example) but most people have realized that switching once a site has already been deployed to production is fairly un-common, and also these custom features are awesome. Postgres has some amazing custom features like the key-value column type [hstore](http://schneems.com/post/19298469372/you-got-nosql-in-my-postgres-using-hstore-in-rails).
+As you can see from the query there is quite a bit going on here, but at the end of the day the `textacular` gem is using SQL that Postgres can read in and output a search. Don't expect this sql to work on another RDBMS like mysql, it is custom to Postgres. Back in the day people used to strive for cross database compliance on websites (the ability to switch between mysql and postgresql for example) but most people have realized that switching once a site has already been deployed to production is fairly un-common, and also these custom features are awesome. Postgres has some amazing custom features like the key-value column type [hstore](http://schneems.com/post/19298469372/you-got-nosql-in-my-postgres-using-hstore-in-rails).
 
-If you're not convinced that using full-text search with Postgres (through the texticle gem). It can do many advanced things, one of the most useful is text stemming. Let's say we've got a link:
+If you're not convinced that using full-text search with Postgres (through the textacular gem). It can do many advanced things, one of the most useful is text stemming. Let's say we've got a link:
 
     > Link.create(:title => "the home of richard schneeman", :url => "http://schneems.com")
 
